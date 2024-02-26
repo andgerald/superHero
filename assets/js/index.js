@@ -1,27 +1,39 @@
+//luego de pasar la validacion muestra el grafico, cards, oculta la pagina principal.
+let mostrar = function () {
+  $(".ocultar").show();
+  $(".mainImage").hide();
+  $("#return").show();
+  $("#chartContainer").show();
+};
+//oculta el grafico,boton volver,etc
+let ocultar = function () {
+  $(".ocultar").hide();
+  $(".mainImage").show();
+  $("#heroNumber").val("");
+  $("#return").hide();
+  $("#chartContainer").hide();
+};
 $(document).ready(function () {
+  //ocultar la card y boton volver
   $(".ocultar").hide();
   $("#return").hide();
+  //boton volver ejecuta la  funcion ocultar que se encuentra mas arriba
   $("#return").click(function () {
-    $(".ocultar").hide();
-    $(".prueba").show();
-    $("#heroNumber").val("");
-    $("#return").hide();
-    $("#chartContainer").hide();
+    ocultar();
   });
+  //boton que hace que se ejecute api, funcion mostrar, etc...
   $("#heroButton").click(function (e) {
-    $(".ocultar").show();
-    $(".prueba").hide();
-    $("#return").show();
-    $("#chartContainer").show();
-
-    //guardamos el número que ingresa el usuario para luego agregarloa a la url
     const heroNumber = $("#heroNumber").val();
+    //validacion del valor ingresado por el usuario
     const regex = /^[0-9]*$/;
     if (regex.test(heroNumber) === false || heroNumber === "") {
-      e.preventDefault();
       alert("debes ingresar un número");
+      $("#heroNumber").val("");
       return;
     }
+    //funcion para mostrar algunos elementos luego de hacer el click
+    mostrar();
+    //llamado a la api
     $.ajax({
       type: "GET",
       url:
@@ -46,14 +58,17 @@ $(document).ready(function () {
             },
           ],
         };
+        // en el ternario  utilice el 1 ,ya que con 0 no muestra el grafico y no sabia si era mejor
+        // que muestre el espacio en blanco con un alert o dejarlo con valor 1
         for (const powers in data.powerstats) {
           dataPoints.push({
             label: powers,
-            y: data.powerstats[powers],
+            y: data.powerstats[powers] == "null" ? 1 : data.powerstats[powers],
           });
         }
+        //llamada al grafico
         $("#chartContainer").CanvasJSChart(options);
-        // Se pinta la información en el html
+        //pinta los datos en la cards
         $("#heroImage")
           .empty()
           .append(
