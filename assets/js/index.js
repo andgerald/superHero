@@ -23,6 +23,7 @@ $(document).ready(function () {
   });
   //boton que hace que se ejecute api, funcion mostrar, etc...
   $("#heroButton").click(function (e) {
+    e.preventDefault();
     const heroNumber = $("#heroNumber").val();
     //validacion del valor ingresado por el usuario
     const regex = /^[0-9]*$/;
