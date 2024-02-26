@@ -34,8 +34,8 @@
           <img
             src="./assets/img/sh2.jpg"
             alt="Logo"
-            width="30"
-            height="24"
+            width="40"
+            height="30"
             class="d-inline-block align-text-top"
           />
           SuperHero
@@ -43,26 +43,57 @@
       </div>
     </nav>
     <!-- imagen principal -->
-    <header class="container mainImage text-center mt-4">
+    <header class="prueba container mainImage text-center mt-4">
       <img
         src="./assets/img/sh1.jpg"
         alt="imagen con texto super hero"
-        width="400"
+        width="300"
       />
+      <section class="container d-flex justify-content-center">
+        <div class="mb-3 mt-5 px-5 mx-5">
+          <h1>Encuentra tu SuperHero</h1>
+          <label for="heroNumber" class="form-label"
+            >Ingresa el número del SuperHero a buscar</label
+          >
+          <input type="text" class="form-control w-75" id="heroNumber" />
+          <button type="submit" class="btn btn-primary mt-4" id="heroButton">
+            Buscar
+          </button>
+        </div>
+      </section>
     </header>
     <main>
-      <div class="mb-3 container mt-5 px-5 mx-5">
-        <h1>Encuentra tu SuperHero</h1>
-        <label for="heroNumber" class="form-label"
-          >Ingresa el número del SuperHero a buscar</label
-        >
-        <input type="text" class="form-control w-75" id="heroNumber" />
-        <button type="button" class="btn btn-primary mt-4" id="heroButton">
-          Buscar
-        </button>
-      </div>
-      <div class="traer"></div>
+      <section class="container ocultar mt-5">
+        <div class="card mb-3 traer">
+          <div class="row g-0">
+            <div
+              class="col-md-4 p-3 text-center d-flex align-items-center"
+              id="heroImage"
+            ></div>
+            <div class="col-md-8">
+              <div class="card-body ms-5">
+                <h5 class="card-title"></h5>
+                <p class="sizeLetter" id="name"></p>
+                <p class="sizeLetter" id="connection"></p>
+                <p class="sizeLetter" id="published"></p>
+                <p class="sizeLetter" id="occupation"></p>
+                <p class="sizeLetter" id="firstAppearance"></p>
+                <p class="sizeLetter" id="heroHeight"></p>
+                <p class="sizeLetter" id="heroWeight"></p>
+                <p class="sizeLetter" id="alliances"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="chartContainer" style="height: 300px; width: 100%"></div>
+
+      <button type="button" class="btn btn-primary m-5" id="return">
+        volver
+      </button>
     </main>
+
     <!-- script de conexion a Jquery -->
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
