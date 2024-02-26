@@ -43,14 +43,14 @@
       </div>
     </nav>
     <!-- imagen principal -->
-    <header class="prueba container mainImage text-center mt-4">
+    <header class="container mainImage text-center mt-4">
       <img
         src="./assets/img/sh1.jpg"
         alt="imagen con texto super hero"
         width="300"
       />
       <section class="container d-flex justify-content-center">
-        <div class="mb-3 mt-5 px-5 mx-5">
+        <div class="mb-3 mt-3 px-5 mx-5">
           <h1>Encuentra tu SuperHero</h1>
           <label for="heroNumber" class="form-label"
             >Ingresa el número del SuperHero a buscar</label
@@ -63,6 +63,7 @@
       </section>
     </header>
     <main>
+      <!-- card -->
       <section class="container ocultar mt-5">
         <div class="card mb-3 traer">
           <div class="row g-0">
@@ -70,6 +71,7 @@
               class="col-md-4 p-3 text-center d-flex align-items-center"
               id="heroImage"
             ></div>
+            <!-- datos que se llenan con la data -->
             <div class="col-md-8">
               <div class="card-body ms-5">
                 <h5 class="card-title"></h5>
@@ -86,9 +88,9 @@
           </div>
         </div>
       </section>
-
+      <!-- grafico -->
       <div id="chartContainer" style="height: 300px; width: 100%"></div>
-
+      <!-- boton volver -->
       <button type="button" class="btn btn-primary m-5" id="return">
         volver
       </button>
