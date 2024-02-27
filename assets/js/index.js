@@ -32,6 +32,11 @@ $(document).ready(function () {
       $("#heroNumber").val("");
       return;
     }
+    if (heroNumber >= 733) {
+      alert(`El superHero con id: ${heroNumber}  no existe`);
+      $("#heroNumber").val("");
+      return;
+    }
     //funcion para mostrar algunos elementos luego de hacer el click
     mostrar();
     //llamado a la api
@@ -59,6 +64,8 @@ $(document).ready(function () {
             },
           ],
         };
+
+        console.log(data.lenght, "data");
         // en el ternario  utilice el 1 ,ya que con 0 no muestra el grafico y no sabia si era mejor
         // que muestre el espacio en blanco con un alert o dejarlo con valor 1
         for (const powers in data.powerstats) {
